@@ -1,4 +1,5 @@
+const x = 'Hello Node.js! How are you@'
 const hello = () => {
-  console.log("Hello Node.js! How are you@");
-};
-hello();
+  console.log(x)
+}
+hello()

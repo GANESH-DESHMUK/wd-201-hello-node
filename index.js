@@ -1,3 +1,14 @@
-const args = require("minimist")(process.argv.slice(2));
-
-console.log(args);
+const http = require("http");
+const fs = require("fs");
+fs.readFile("home.html", (err, home) => {
+  if (err) {
+    throw err;
+  }
+  http
+    .createServer((request, response) => {
+      response.writeHeader(200, { "Content-Type": "text/html" });
+      response.write(home);
+      response.end();
+    })
+    .listen(5000);
+});
